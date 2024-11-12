@@ -13,8 +13,15 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
+Route::controller(AdminController::class)->group(function () {
+    Route::get('admin/logout', 'AdminLogout')->name('admin.logout');
+    Route::get('admin/profile','AdminProfile')->name('admin.profile');
+    Route::post('admin/profile/update','AdminProfileUpdate')->name('admin.profile.update');
+    Route::get('admin/password/change','AdminPasswordChange')->name('admin.password.change');
+    Route::post('admin/password/update','AdminPasswordUpdate')->name('admin.password.update');
+});
 
-Route::get('admin/logout', [AdminController::class, 'AdminLogout'])->name('admin.logout');
+
 
 
 Route::middleware('auth')->group(function () {
