@@ -46,11 +46,12 @@
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="ri-profile-line"></i>
-                        <span>Utility</span>
+                        <span>Subjects</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="pages-starter.html">Starter Page</a></li>
-                        <li><a href="pages-timeline.html">Timeline</a></li>
+                        <li><a href="{{route('create.subject')}}">Create Subject</a></li>
+                        <li><a href="{{route('manage.subjects')}}">Manage Subject</a></li>
+                        <li><a href="{{route('add.subject.combination')}}">Add Subject Combination</a></li>
                     </ul>
                 </li>
 

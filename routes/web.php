@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\backend\AdminController;
 use App\Http\Controllers\backend\ClassesController;
+use App\Http\Controllers\backend\SubjectController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -33,6 +34,20 @@ Route::controller(ClassesController::class)->group(function () {
     Route::post('update/class', 'UpdateClass')->name('update.class');
     Route::get('delete/class/{id}', 'DeleteClass')->name('delete.class');
 });
+
+//Subjects Routes
+Route::controller(SubjectController::class)->group(function () {
+    Route::get('create/subject', 'CreateSubject')->name('create.subject');
+    Route::post('store/subject', 'StoreSubject')->name('store.subject');
+    Route::get('manage/subjects', 'ManageSubjects')->name('manage.subjects');
+    Route::get('edit/subject/{id}', 'EditSubject')->name('edit.subject');
+    Route::post('update/subject', 'UpdateSubject')->name('update.subject');
+    Route::get('delete/subject/{id}', 'DeleteSubject')->name('delete.subject');
+
+    //Subject Combination Routes
+    Route::get('add/subject/combination', 'AddSubjectCombination')->name('add.subject.combination');
+});
+
 
 
 
