@@ -26,13 +26,13 @@
 
             <h4 class="card-title">Add Subject Combination</h4>
 
-            <form action="{{route('store.subject')}}" method="POST">
+            <form action="{{route('store.subject.combination')}}" method="POST">
                 @csrf
 
                 <div class="row mb-3">
                     <label for="example-text-input" class="col-sm-2 col-form-label">Class</label>
                     <div class="col-sm-10">
-                        <select class="form-select" aria-label="Default select example">
+                        <select name="class_id" class="form-select" aria-label="Default select example">
                             <option selected="">Select Class</option>
                             @foreach ($classes as $class)
                                 <option value="{{$class->id}}">{{$class->class_name}}</option>
