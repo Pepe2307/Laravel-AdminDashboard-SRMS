@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\classes;
 use App\Models\Student;
+use App\Models\Result;
 
 class StudentController extends Controller
 {
@@ -81,6 +82,7 @@ class StudentController extends Controller
 
         $student = Student::find($id);
         @unlink(public_path('uploads/student_photos/'.$student->photo));
+        Result::where('student_id', $student->id);
         $student->delete();
         
         $notification = array(

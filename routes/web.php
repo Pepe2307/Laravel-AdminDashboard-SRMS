@@ -6,6 +6,7 @@ use App\Http\Controllers\backend\AdminController;
 use App\Http\Controllers\backend\ClassesController;
 use App\Http\Controllers\backend\SubjectController;
 use App\Http\Controllers\backend\StudentController;
+use App\Http\Controllers\backend\ResultController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -61,6 +62,22 @@ Route::controller(StudentController::class)->group(function () {
     Route::get('edit/student/{id}', 'EditStudent')->name('edit.student');
     Route::post('update/student', 'UpdateStudent')->name('update.student');
     Route::get('delete/student/{id}', 'DeleteStudent')->name('delete.student');
+});
+
+
+//Result Routes
+Route::controller(ResultController::class)->group(function () {
+    Route::get('add/result', 'AddResult')->name('add.result');
+    Route::post('store/result', 'StoreResult')->name('store.result');
+    Route::get('manage/results', 'ManageResult')->name('manage.results');
+    Route::get('edit/result/{id}', 'EditResult')->name('edit.result');
+    Route::post('update/result', 'UpdateResult')->name('update.result');
+    Route::get('delete/result/{id}', 'DeleteResult')->name('delete.result');
+    
+
+    //Ajax Routes
+    Route::get('fetch/student', 'FetchStudent')->name('fetch.student');
+    Route::get('fetch/student/result', 'FetchStudentResult')->name('check.student.result');
 });
 
 
